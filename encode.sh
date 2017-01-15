@@ -6,7 +6,7 @@ humanstart=$(<val-humanstart)
 outname=$(basename "$filename")
 outname="${outname%.*} [$humanstart]"
 ln -s "$outname".webm clip.webm
-ffmpeg -i clip.mkv -crf 10 -b:v 4M -c:v vp8 -speed 0 -an -pass 1 -f webm -y /dev/null
-ffmpeg -i clip.mkv -crf 10 -b:v 4M -c:v vp8 -speed 0 -an -pass 2 -metadata title="$outname" clip.webm
+ffmpeg -i clip.mkv -crf 10 -b:v 0 -c:v vp8 -speed 0 -an -pass 1 -f webm -y /dev/null
+ffmpeg -i clip.mkv -crf 10 -b:v 0 -c:v vp8 -speed 0 -an -pass 2 -metadata title="$outname" clip.webm
 popd
 
